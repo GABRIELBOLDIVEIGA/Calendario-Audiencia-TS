@@ -4,8 +4,8 @@ import ApiCalendar from "react-google-calendar-api";
 
 export const calendarAPI = new ApiCalendar(configApiCalendar);
 
-export default function getEvents(calendarioIDs: Array<{id: string, sala: string}>) {
-   let salas: Array<Evento[]> = [];
+export default function getEvents(calendarioIDs: Array<{ id: string, sala: string }>) {
+   let salas
 
    calendarioIDs.forEach(calendario => {
       calendarAPI.listEvents({
@@ -16,13 +16,13 @@ export default function getEvents(calendarioIDs: Array<{id: string, sala: string
          orderBy: "startTime",
          singleEvents: true,
       })
-      .then((res: any) => {  
-         var sala = filtraEvento(res.result.items);
+         .then((res: any) => {
+            var sala = filtraEvento(res.result.items);
 
-         if(sala.length > 0) {
-            salas.push(sala);
-         } 
-      })
+            if (sala.length > 0) {
+               salas.push(sala);
+            }
+         })
    })
    return salas;
 }

@@ -18,24 +18,32 @@ const Botao = styled.button`
 
 function App() {
     const [calendariosIDs, setCalendariosIDs] = useState([]);
-    const [salas, setSalas] = useState<Evento[][]>();
+    const [salas, setSalas] = useState<Evento[][] | undefined>([]);
 
     useEffect(() => {
         fetch("https://my-json-server.typicode.com/CivelVitoria/.db/calendarIds")
-        .then((resposta) => resposta.json())
+            .then((resposta) => resposta.json())
             .then((dados) => {
                 setCalendariosIDs(dados)
             });
-    },[])
-    
+    }, [])
+
+    const f = () => {
+        const x = getEvents(calendariosIDs)
+        setSalas(x);
+        console.log(x)
+    }
+
     return (
-         <Frame> 
-            <Botao onClick={() => {calendarAPI.handleAuthClick() }}>API</Botao>
-            <Botao onClick={() => {setSalas(getEvents(calendariosIDs))}}>DADOS</Botao>
-          
-            {salas && <Carrousel salas={salas}/>}
+        <Frame>
+            <Botao onClick={() => { calendarAPI.handleAuthClick() }}>API</Botao>
+            <Botao onClick={() => { f() }}>DADOS</Botao>
+
+            {salas ? <Carrousel salas={salas} />
+                : <></>
+            }
         </Frame>
-        
+
     )
 }
 

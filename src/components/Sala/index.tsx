@@ -10,7 +10,7 @@ const Div = styled.div`
     height: 50px;
 `
 
-export default function Sala({ sala } : { sala: IEvento[] }) {
+export default function Sala({ sala }: { sala: IEvento[] }) {
     console.log("[Sala] - ", sala)
 
     return (
@@ -21,6 +21,6 @@ export default function Sala({ sala } : { sala: IEvento[] }) {
                 )
             })}
         </Div>
-    
-  )
+
+    )
 }

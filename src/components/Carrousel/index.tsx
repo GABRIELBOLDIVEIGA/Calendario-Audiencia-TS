@@ -9,19 +9,19 @@ import Sala from "components/Sala";
 import { useEffect, useState } from "react";
 
 interface Props {
-  salas: Evento[][] | undefined;
+    salas: Evento[][] | undefined;
 }
 
- const Carrousel = ({ salas } : Props) => {
+const Carrousel = ({ salas }: Props) => {
     const [listaDeSalas, setListaDeSalas] = useState(salas);
 
-    useEffect(() =>{
+    useEffect(() => {
         setListaDeSalas(salas)
-        console.log("[Carrousel] - ", salas?.length )
-    },[salas])
+        console.log("[Carrousel] - ", salas?.length)
+    }, [salas])
 
     const TEMPO_DE_CADA_SLIDE = time._10segundos;
-    const VELOCIDADE_EFEITO_TROCA_SLIDE = time._2segundos; 
+    const VELOCIDADE_EFEITO_TROCA_SLIDE = time._2segundos;
     const settings = {
         dots: true,
         infinite: true,
@@ -35,11 +35,11 @@ interface Props {
 
     return (
         <Slider {...settings} className="slide">
-                {listaDeSalas?.map((sala, index) => {
-                    return (
-                        <Sala sala={sala} key={index} />
-                    )
-                })}
+            {listaDeSalas?.map((sala, index) => {
+                return (
+                    <Sala sala={sala} key={index} />
+                )
+            })}
         </Slider>
     )
 }
