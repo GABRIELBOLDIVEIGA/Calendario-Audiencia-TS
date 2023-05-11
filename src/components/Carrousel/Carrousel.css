@@ -1,4 +1,6 @@
 .slide {
     border: 1px dashed blueviolet;
-    /* min-height: 97vh; */
+    background-color: antiquewhite;
+    width: 100%;
+    height: 98vh;
 }

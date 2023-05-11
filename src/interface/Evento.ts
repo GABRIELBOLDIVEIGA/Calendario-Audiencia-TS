@@ -1,20 +1,18 @@
 export interface Evento {
-    creator: {
-        email: string;
-    };
-    start: {
-        dateTime: string;
-    };
+    creator: EmailCriador;
+    start: Data_Horario;
     summary: string;
-    organizer: {
-        displayName: string
-    }
+    organizer: NomeSala;
 }
 
-interface Criador {
+interface EmailCriador {
     email: string;
 }
 
-interface Start {
+interface Data_Horario {
     dateTime: string;
+}
+
+interface NomeSala {
+    displayName: string;
 }

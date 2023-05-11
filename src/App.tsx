@@ -41,12 +41,12 @@ function App() {
 
     return (
         <Frame>
-            <Botao onClick={() => { calendarAPI.handleAuthClick() }}>Login</Botao>
-            <Botao onClick={() => { buscaEventosAPI() }}>Gabriel Boldi</Botao>
-
             {salas.length > 0 ? <Carrousel salas={salas} />
                 : <h1>Carregando...</h1>
             }
+            <Botao onClick={() => { calendarAPI.handleAuthClick() }}>Login</Botao>
+            <Botao onClick={() => { buscaEventosAPI() }}>Gabriel Boldi</Botao>
+
         </Frame>
 
     )
