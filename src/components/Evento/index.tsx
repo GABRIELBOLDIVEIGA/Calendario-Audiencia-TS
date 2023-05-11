@@ -10,8 +10,9 @@ const Div2 = styled.div`
 `
 
 export default function Evento({ evento }: { evento: IEvento }) {
-  console.log("[Evento] - ", evento)
-  return (
-    <Div2>Evento</Div2>
-  )
+    // console.log("[Evento] - ", evento)
+
+    return (
+        <Div2>Evento</Div2>
+    )
 }

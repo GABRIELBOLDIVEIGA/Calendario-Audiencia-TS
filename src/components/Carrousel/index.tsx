@@ -15,10 +15,11 @@ interface Props {
 const Carrousel = ({ salas }: Props) => {
     const [listaDeSalas, setListaDeSalas] = useState(salas);
 
+    console.log("[Carrousel] ", salas)
+    
     useEffect(() => {
         setListaDeSalas(salas)
-        console.log("[Carrousel] - ", salas?.length)
-    }, [salas])
+    }, [])
 
     const TEMPO_DE_CADA_SLIDE = time._10segundos;
     const VELOCIDADE_EFEITO_TROCA_SLIDE = time._2segundos;

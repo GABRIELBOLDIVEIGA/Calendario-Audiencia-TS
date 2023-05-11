@@ -1,16 +1,18 @@
 import { configApiCalendar } from "GoogleAPI/config";
+import addDays from "common/adicionaDias";
 import { Evento } from "interface/Evento";
 import ApiCalendar from "react-google-calendar-api";
 
 export const calendarAPI = new ApiCalendar(configApiCalendar);
 
-export default function getEvents(calendarioIDs: Array<{ id: string, sala: string }>) {
-   let salas
+export default async function getEvents(calendarioIDs: Array<{ id: string, sala: string }>) {
+   let salas: Array<Evento[]> = [];
 
    calendarioIDs.forEach(calendario => {
       calendarAPI.listEvents({
          calendarId: calendario.id,
          timeMin: new Date().toISOString(),
+         timeMax: addDays(30).toISOString(),
          showDeleted: false,
          maxResults: 12,
          orderBy: "startTime",
@@ -21,9 +23,12 @@ export default function getEvents(calendarioIDs: Array<{ id: string, sala: strin
 
             if (sala.length > 0) {
                salas.push(sala);
+               // console.log("[Loop API] - salas: ", salas)
             }
          })
    })
+
+   console.log(JSON.stringify(salas))
    return salas;
 }
 

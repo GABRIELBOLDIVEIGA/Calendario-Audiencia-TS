@@ -11,13 +11,13 @@ const Div = styled.div`
 `
 
 export default function Sala({ sala }: { sala: IEvento[] }) {
-    console.log("[Sala] - ", sala)
+    // console.log("[Sala] - ", sala)
 
     return (
         <Div>
-            {sala.map((evento) => {
+            {sala.map((evento, index) => {
                 return (
-                    <Evento evento={evento} />
+                    <Evento key={index} evento={evento} />
                 )
             })}
         </Div>
