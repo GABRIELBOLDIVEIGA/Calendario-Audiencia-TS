@@ -32,6 +32,7 @@ export default function Evento({ evento }: { evento: IEvento }) {
 
     useEffect(() => {
         const result = usuarios.find((user) => user.email === evento.creator.email);
+        console.log(result)
         setVara(result?.nome!)
 
         setData(formataData(evento.start.dateTime));
