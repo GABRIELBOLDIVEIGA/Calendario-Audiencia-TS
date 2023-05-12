@@ -12,12 +12,13 @@ interface Props {
 }
 
 const EventoAtual = styled.div<Props>`
+    color: ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     font-weight: 700;
-    border: 5px solid black;
+    border: 5px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     border-radius: 10px;
-    box-shadow: 8px 8px ${(props) => (props.hoje ? "#65c6ce" : "black")};
+    box-shadow: 8px 8px ${(props) => (props.hoje ? "#62c0a5" : "#727272")};
     padding: 1rem;
-    background-color: ${(props) => (props.hoje ? "green" : "red")};
+    background-color: ${(props) => (props.hoje ? "#65c8cf" : "#bfbfbf")};
 
     width: 20%;
     min-width: 20%;
@@ -36,13 +37,14 @@ const DivDataHora = styled.div`
     align-items: center;
 `
 
-const ContainerHora = styled.div`
-    border: 3px solid black;
+const ContainerHora = styled.div<Props>`
+    border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
+    background-color: ${(props) => (props.hoje ? "#91a8eb" : "transparent")};
     border-radius: 10px;
     padding: .2rem .5rem;
 `
 
-const ContainerProcesso = styled.div`
+const ContainerProcesso = styled.div<Props>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,12 +55,12 @@ const ContainerProcesso = styled.div`
 
     max-width: 100%;
 
-    border: 3px solid black;
+    border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     border-radius: 10px;
 `
 
-const ProcessoFrase = styled.p`
-    border: 3px solid black;
+const ProcessoFrase = styled.p<Props>`
+    border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     border-radius: 10px;
     padding: .2rem .5rem;
     width: max-content;
@@ -93,11 +95,11 @@ export default function Evento({ evento }: { evento: IEvento }) {
         <EventoAtual hoje={eventoHoje}>
             <DivDataHora>
                 <p>{data}</p>
-                <ContainerHora>{`Inicio: ${hora}`}</ContainerHora>
+                <ContainerHora hoje={eventoHoje}>{`Inicio: ${hora}`}</ContainerHora>
             </DivDataHora>
 
-            <ContainerProcesso>
-                <ProcessoFrase>Processo</ProcessoFrase>
+            <ContainerProcesso  hoje={eventoHoje}>
+                <ProcessoFrase  hoje={eventoHoje}>Processo</ProcessoFrase>
                 <ProcessoNumero>{`${evento.summary}`}</ProcessoNumero>
             </ContainerProcesso>
 
