@@ -39,13 +39,13 @@ export const useUsuariosContext = () => {
     const usuariosContext = useContext(UsuariosContext);
     const { usuarios, setUsuarios} = usuariosContext;
 
-    useEffect(() => {
-        fetch(`https://my-json-server.typicode.com/CivelVitoria/.db/usuarios`)
-            .then((resposta) => resposta.json())
-            .then((dados) => {
-                setUsuarios(dados);
-            });
-    }, [])
+    // useEffect(() => {
+    //     fetch(`https://my-json-server.typicode.com/CivelVitoria/.db/usuarios`)
+    //         .then((resposta) => resposta.json())
+    //         .then((dados) => {
+    //             setUsuarios(dados);
+    //         });
+    // }, [])
 
-    return {usuarios};
+    return {usuarios, setUsuarios};
 }

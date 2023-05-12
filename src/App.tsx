@@ -4,6 +4,7 @@ import getEvents, { calendarAPI } from "GoogleAPI/getEvents";
 import { useEffect, useState } from "react";
 import { Evento } from "interface/Evento";
 import { Segundos } from "enums/Segundos"
+import { useUsuariosContext } from "context/UsuariosContext";
 
 const Frame = styled.section`
     max-width: 100vw;
@@ -21,6 +22,7 @@ function App() {
     const [calendariosIDs, setCalendariosIDs] = useState([]);
     const [salas, setSalas] = useState<Evento[][]>([]);
     const [reload, setReaload] = useState(false);
+    const { setUsuarios } = useUsuariosContext();
 
 
     useEffect(() => {
@@ -28,14 +30,20 @@ function App() {
             .then((resposta) => resposta.json())
             .then((dados) => {
                 setCalendariosIDs(dados);
-            })
+            });
+
+        fetch(`https://my-json-server.typicode.com/CivelVitoria/.db/usuarios`)
+            .then((resposta) => resposta.json())
+            .then((dados) => {
+                setUsuarios(dados);
+            });
     }, []);
 
     const buscaEventosAPI = () => {
         getEvents(calendariosIDs)
             .then((resposta) => {
                 setSalas(resposta)
-                setTimeout(() => {setReaload((prev) => !prev)}, Segundos._3segundos); // essa linha força o React a re-renderizar
+                setTimeout(() => { setReaload((prev) => !prev) }, Segundos._3segundos); // essa linha força o React a re-renderizar
             })
     }
 

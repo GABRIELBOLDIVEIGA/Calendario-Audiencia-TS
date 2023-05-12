@@ -7,20 +7,65 @@ import { useEffect } from 'react';
 import formataData from 'common/dataDDMMYYYY';
 import formataHorario from 'common/horarioHHMM';
 
-const Card = styled.div`
-    border: 3px solid green;
-    background-color: green;
+interface Props {
+    hoje?: boolean;
+}
 
+const EventoAtual = styled.div<Props>`
+    font-weight: 700;
+    border: 5px solid black;
+    border-radius: 10px;
+    box-shadow: 8px 8px ${(props) => (props.hoje ? "#65c6ce" : "black")};
+    padding: 1rem;
+    background-color: ${(props) => (props.hoje ? "green" : "red")};
+
+    width: 20%;
     min-width: 20%;
     height: 100%;
+    min-height: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
 `
 
-const Card2 = styled.div`
-    border: 3px solid red;
-    background-color: red;
+const DivDataHora = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
 
-    min-width: 20%;
-    height: 100%;
+const ContainerHora = styled.div`
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: .2rem .5rem;
+`
+
+const ContainerProcesso = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: .5rem;
+
+    max-width: 100%;
+
+    border: 3px solid black;
+    border-radius: 10px;
+`
+
+const ProcessoFrase = styled.p`
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: .2rem .5rem;
+`
+
+const ProcessoNumero = styled.p`
+    word-break: break-word;
+    text-align: center;
+    
 `
 
 export default function Evento({ evento }: { evento: IEvento }) {
@@ -32,8 +77,8 @@ export default function Evento({ evento }: { evento: IEvento }) {
 
     useEffect(() => {
         const result = usuarios.find((user) => user.email === evento.creator.email);
-        console.log(result)
-        setVara(result?.nome!)
+
+        setVara(result?.nome! ? result.nome : "...");
 
         setData(formataData(evento.start.dateTime));
         setHora(formataHorario(evento.start.dateTime));
@@ -43,34 +88,19 @@ export default function Evento({ evento }: { evento: IEvento }) {
     }, [])
 
     return (
-        <>
-            {eventoHoje ? <Card>
-                <div>
-                    <p>{data}</p>
-                    <p>{`Inicio: ${hora}`}</p>
-                </div>
+        <EventoAtual hoje={eventoHoje}>
+            <DivDataHora>
+                <p>{data}</p>
+                <ContainerHora>{`Inicio: ${hora}`}</ContainerHora>
+            </DivDataHora>
 
-                <div>
-                    <p>Processo</p>
-                    <p>{`${evento.summary}`}</p>
-                </div>
+            <ContainerProcesso>
+                <ProcessoFrase>Processo</ProcessoFrase>
+                <ProcessoNumero>{`${evento.summary}`}</ProcessoNumero>
+            </ContainerProcesso>
 
-                <p>{`Vara: ${vara}`}</p>
-            </Card> : <Card2>
-                <div>
-                    <p>{data}</p>
-                    <p>{`Inicio: ${hora}`}</p>
-                </div>
-
-                <div>
-                    <p>Processo</p>
-                    <p>{`${evento.summary}`}</p>
-                </div>
-
-                <p>{`Vara: ${vara}`}</p>
-            </Card2>
-            }
-        </>
+            <p>{`Vara: ${vara}`}</p>
+        </EventoAtual>
 
     )
 }

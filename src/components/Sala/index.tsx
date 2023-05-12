@@ -6,22 +6,21 @@ import styled from 'styled-components'
 
 
 const Section = styled.section`
-    background-color: grey;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 100%;
+    
+    min-height: 90vh;
 `
 const Titulo = styled.h1`
-    border: 5px solid red;
+    
 
     width: 100px;
     height: 70px;
 `
 const Div = styled.div`
-    border: 1px solid goldenrod;
+    
 
     display: flex;
     justify-content: space-evenly;
@@ -30,7 +29,7 @@ const Div = styled.div`
 `
 
 export default function Sala({ sala }: { sala: IEvento[] }) {
-    console.log("[Sala] - ", sala[0].organizer.displayName)
+    // console.log("[Sala] - ", sala[0].organizer.displayName)
 
     return (
         <Section>
