@@ -22,7 +22,7 @@ const EventoAtual = styled.div<Props>`
     width: 20%;
     min-width: 20%;
     height: 100%;
-    min-height: 10rem;
+    min-height: 12rem;
 
     display: flex;
     flex-direction: column;
@@ -44,8 +44,9 @@ const ContainerHora = styled.div`
 
 const ContainerProcesso = styled.div`
     display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1rem;
 
     padding: .5rem;
@@ -60,6 +61,7 @@ const ProcessoFrase = styled.p`
     border: 3px solid black;
     border-radius: 10px;
     padding: .2rem .5rem;
+    width: max-content;
 `
 
 const ProcessoNumero = styled.p`
