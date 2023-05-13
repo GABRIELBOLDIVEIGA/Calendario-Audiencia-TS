@@ -21,8 +21,8 @@ const Carrousel = ({ salas }: Props) => {
         setListaDeSalas(salas)
     }, [])
 
-    const TEMPO_DE_CADA_SLIDE = time._10segundos;
-    const VELOCIDADE_EFEITO_TROCA_SLIDE = time._2segundos;
+    const TEMPO_DE_CADA_SLIDE = time._20segundos;
+    const VELOCIDADE_EFEITO_TROCA_SLIDE = time._3segundos;
     const settings = {
         dots: true,
         infinite: true,

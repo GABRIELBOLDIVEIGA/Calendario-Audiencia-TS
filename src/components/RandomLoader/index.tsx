@@ -3,26 +3,29 @@ import RainbowLoader from "components/RainbowLoader";
 import CubeLoading from "components/CubeLoading";
 import ComposeLoading from "components/ComposeLoading";
 import LoadingRainbowlBar from "components/LoadingRainbowlBar";
-import ColoredDotsLoader from "components/ColoredDotsLoader";
+import DarkBlobLoader from "components/DarkBlobLoader";
 import { useEffect } from 'react';
 import { useState } from 'react';
-
+import HamsterLoader from 'components/HamsterLoader';
+import AstronautLoader from 'components/AstronautLoader';
 
 export default function RandomLoader() {
     const [component, setComponent] = useState(<></>);
 
     useEffect(() => {
         const array = [
-            <RainbowLoader />, 
-            <CubeLoading />, 
-            <LoadingRainbowlBar />, 
-            <ComposeLoading />, 
-            <ColoredDotsLoader />
+            <RainbowLoader />,
+            <CubeLoading />,
+            <LoadingRainbowlBar />,
+            <ComposeLoading />,
+            <DarkBlobLoader />,
+            <HamsterLoader />,
+            <AstronautLoader />
         ];
 
-        const rand = Math.floor(Math.random() * array.length)
-        console.log(rand)
-        setComponent(array[0])
+        const numeroRandomico = Math.floor(Math.random() * array.length)
+
+        setComponent(array[numeroRandomico])
 
     }, [])
 

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import-normalize;
 
 html,
 body,
@@ -88,6 +89,10 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+}
+
+body {
+  overflow: hidden;
 }
 
 /* make sure to set some focus styles for accessibility */
@@ -203,10 +208,11 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
   -ms-text-size-adjust: 100%; /* 2 */
   
-  background-color: #cee3fe;
-  background-image: url("./assets/mmmotif.svg");
+  /* background-color: #cee3fe; */
+  background-color: #212121;
+  /* background-image: url("./assets/mmmotif.svg");
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;  */
 
 }
 

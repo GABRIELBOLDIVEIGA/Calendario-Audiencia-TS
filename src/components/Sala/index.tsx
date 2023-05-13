@@ -15,8 +15,8 @@ const Titulo = styled.p`
     box-shadow: 5px 5px #3d3d3d;
     background-color: #ffa4c4;
 
-    padding: 3rem;
-    margin: 2rem 0 2rem 0;
+    padding: 2rem;
+    margin: .5rem 0 1rem 0;
 
     font-family: 'Press Start 2P', cursive;
     font-size: 2rem;
@@ -25,7 +25,7 @@ const Div = styled.div`
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: 1.75rem;
     width: 100%;
 `
 

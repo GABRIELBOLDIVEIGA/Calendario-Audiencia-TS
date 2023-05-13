@@ -14,14 +14,13 @@ interface Props {
 const EventoAtual = styled.div<Props>`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     justify-content: space-between;
     
     font-weight: 700;
     width: 20%;
     min-width: 20%;
-    height: 100%;
-    min-height: 12rem;
+    height: 15rem;
+    min-height: 15rem;
     padding: 1rem;
     
     color: ${(props) => (props.hoje ? "black" : "#3f3f3f")};
