@@ -1,6 +1,5 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html,
 body,
@@ -203,7 +202,12 @@ html {
   font-size: 100%; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -ms-text-size-adjust: 100%; /* 2 */
-  background-color: #f9f5f2;
+  
+  background-color: #cee3fe;
+  background-image: url("./assets/mmmotif.svg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+
 }
 
 /**

@@ -11,6 +11,7 @@ export default async function getEvents(calendarioIDs: Array<{ id: string, sala:
    calendarioIDs.forEach(calendario => {
       calendarAPI.listEvents({
          calendarId: calendario.id,
+         // calendarId: "c_839d04047b7a43ba4cb2f34f8c0156ebf014e85b57263ff5364a8247e3d264a7@group.calendar.google.com",
          timeMin: new Date().toISOString(),
          timeMax: addDays(30).toISOString(),
          showDeleted: false,
@@ -23,7 +24,6 @@ export default async function getEvents(calendarioIDs: Array<{ id: string, sala:
 
             if (sala.length > 0) {
                salas.push(sala);
-               // console.log("[Loop API] - salas: ", salas)
             }
          })
    })

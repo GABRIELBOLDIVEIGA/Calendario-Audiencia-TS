@@ -6,6 +6,8 @@ import { Evento } from "interface/Evento";
 import { Segundos } from "enums/Segundos"
 import { useUsuariosContext } from "context/UsuariosContext";
 
+import RandomLoader from "components/RandomLoader";
+
 const Frame = styled.section`
     max-width: 100vw;
     min-height: 100vh;
@@ -23,7 +25,7 @@ function App() {
     const [salas, setSalas] = useState<Evento[][]>([]);
     const [reload, setReaload] = useState(false);
     const { setUsuarios } = useUsuariosContext();
-
+    
 
     useEffect(() => {
         fetch("https://my-json-server.typicode.com/CivelVitoria/.db/calendarIds")
@@ -50,7 +52,7 @@ function App() {
     return (
         <Frame>
             {salas.length > 0 ? <Carrousel salas={salas} />
-                : <h1>Carregando...</h1>
+                : <RandomLoader />
             }
             <Botao onClick={() => { calendarAPI.handleAuthClick() }}>Login</Botao>
             <Botao onClick={() => { buscaEventosAPI() }}>Gabriel Boldi</Botao>

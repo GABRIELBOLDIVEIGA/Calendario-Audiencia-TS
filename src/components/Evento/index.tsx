@@ -12,36 +12,39 @@ interface Props {
 }
 
 const EventoAtual = styled.div<Props>`
-    color: ${(props) => (props.hoje ? "black" : "#3f3f3f")};
-    font-weight: 700;
-    border: 5px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
-    border-radius: 10px;
-    box-shadow: 8px 8px ${(props) => (props.hoje ? "#62c0a5" : "#727272")};
-    padding: 1rem;
-    background-color: ${(props) => (props.hoje ? "#65c8cf" : "#bfbfbf")};
-
-    width: 20%;
-    min-width: 20%;
-    height: 100%;
-    min-height: 12rem;
-
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-content: space-between;
+    
+    font-weight: 700;
+    width: 20%;
+    min-width: 20%;
+    height: 100%;
+    min-height: 12rem;
+    padding: 1rem;
+    
+    color: ${(props) => (props.hoje ? "black" : "#3f3f3f")};
+    border: 5px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
+    box-shadow: 10px 10px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
+    background-color: ${(props) => (props.hoje ? "#c4a1ff" : "#bfbfbf")};
 `
 
-const DivDataHora = styled.div`
+const ContainerDataHora = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    font-family: 'Press Start 2P', cursive;
 `
 
-const ContainerHora = styled.div<Props>`
+const PHora = styled.p<Props>`
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    
     border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
-    background-color: ${(props) => (props.hoje ? "#91a8eb" : "transparent")};
-    border-radius: 10px;
-    padding: .2rem .5rem;
+    background-color: ${(props) => (props.hoje ? "#00b1f8" : "hsl(223, 69%, 95%)")};
+    box-shadow: 5px 5px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
 `
 
 const ContainerProcesso = styled.div<Props>`
@@ -52,24 +55,49 @@ const ContainerProcesso = styled.div<Props>`
     gap: 1rem;
 
     padding: .5rem;
-
     max-width: 100%;
 
-    border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
-    border-radius: 10px;
+    border: 4px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
+    background-color: ${(props) => (props.hoje ? "#e5e5e5" : "#e5e5e5")};
 `
 
-const ProcessoFrase = styled.p<Props>`
-    border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
-    border-radius: 10px;
-    padding: .2rem .5rem;
+const PProcesso = styled.p<Props>`
     width: max-content;
+    padding: .5rem 1rem;
+    
+    font-size: 1.25rem;
+    font-family: 'Press Start 2P', cursive;
+    
+    border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
+    box-shadow: 5px 5px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
+    background-color: ${(props) => (props.hoje ? "#ffe300" : "hsl(223, 69%, 95%)")};
 `
 
-const ProcessoNumero = styled.p`
+const PNumeroProcesso = styled.p`
     word-break: break-word;
     text-align: center;
+
+    font-size: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+`
+
+const ContainerVara = styled.div`
+    display: grid;
+    place-items: center;
+`
+
+const PVara = styled.p<Props>`
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.25rem;
+    text-align: center;
     
+    width: max-content;
+    padding: .5rem 1rem;
+    
+    border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
+    box-shadow: 5px 5px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
+    background-color: ${(props) => (props.hoje ? "#50d03e" : "hsl(223, 69%, 95%)")};
 `
 
 export default function Evento({ evento }: { evento: IEvento }) {
@@ -93,17 +121,19 @@ export default function Evento({ evento }: { evento: IEvento }) {
 
     return (
         <EventoAtual hoje={eventoHoje}>
-            <DivDataHora>
+            <ContainerDataHora>
                 <p>{data}</p>
-                <ContainerHora hoje={eventoHoje}>{`Inicio: ${hora}`}</ContainerHora>
-            </DivDataHora>
+                <PHora hoje={eventoHoje}>{`${hora}`}</PHora>
+            </ContainerDataHora>
 
-            <ContainerProcesso  hoje={eventoHoje}>
-                <ProcessoFrase  hoje={eventoHoje}>Processo</ProcessoFrase>
-                <ProcessoNumero>{`${evento.summary}`}</ProcessoNumero>
+            <ContainerProcesso hoje={eventoHoje}>
+                <PProcesso hoje={eventoHoje}>Processo</PProcesso>
+                <PNumeroProcesso>{`${evento.summary}`}</PNumeroProcesso>
             </ContainerProcesso>
 
-            <p>{`Vara: ${vara}`}</p>
+            <ContainerVara>
+                <PVara hoje={eventoHoje}>{`${vara}`}</PVara>
+            </ContainerVara>
         </EventoAtual>
 
     )

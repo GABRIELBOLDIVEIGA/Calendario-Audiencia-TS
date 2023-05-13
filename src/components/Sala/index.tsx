@@ -10,12 +10,16 @@ const Section = styled.section`
     width: 100%;
     min-height: 97vh;
 `
-const Titulo = styled.div`
-    border: 1px solid red;
-    display: grid;
-    place-items: center;
-    width: 100px;
-    height: 70px;
+const Titulo = styled.p`
+    border: 5px solid black;
+    box-shadow: 5px 5px #3d3d3d;
+    background-color: #ffa4c4;
+
+    padding: 3rem;
+    margin: 2rem 0 2rem 0;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
 `
 const Div = styled.div`
     display: flex;
@@ -26,11 +30,9 @@ const Div = styled.div`
 `
 
 export default function Sala({ sala }: { sala: IEvento[] }) {
-    // console.log("[Sala] - ", sala[0].organizer.displayName)
-
     return (
         <Section>
-            <Titulo><p>{sala[0].organizer.displayName}</p></Titulo>
+            <Titulo>{sala[0].organizer.displayName}</Titulo>
             <Div>
                 {sala.map((evento, index) => {
                     return (
