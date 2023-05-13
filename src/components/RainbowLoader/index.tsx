@@ -1,4 +1,4 @@
-import styles from "./RainbowLoader.module.css";
+import "./RainbowLoader.scss";
 
 export default function RainbowLoader() {
   return (
