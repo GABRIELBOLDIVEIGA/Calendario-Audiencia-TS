@@ -73,8 +73,8 @@ function App() {
                 : <RandomLoader />
             }
             <ContainerBotoes>
-                <Botao onClick={() => { calendarAPI.handleAuthClick() }}> </Botao>
-                <Botao onClick={() => { buscaEventosAPI() }}><AiOutlineGithub /> Gabriel Boldi</Botao>
+                <Botao id="btn_login" onClick={() => { calendarAPI.handleAuthClick() }}> </Botao>
+                <Botao id="btn_dados" onClick={() => { buscaEventosAPI() }}><AiOutlineGithub /> Gabriel Boldi</Botao>
             </ContainerBotoes>
         </Frame>
 
