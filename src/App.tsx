@@ -69,6 +69,7 @@ function App() {
 
     return (
         <Frame>
+            {/* <Clock className={style.app__clock} wrap={false} format={"HH:mm"} ticking={true} /> */}
             {salas.length > 0 ? <Carrousel salas={salas} />
                 : <RandomLoader />
             }
