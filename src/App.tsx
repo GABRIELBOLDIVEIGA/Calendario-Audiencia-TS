@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Evento } from "interface/Evento";
 import { Segundos } from "enums/Segundos"
 import { useUsuariosContext } from "context/UsuariosContext";
-import { AiOutlineGithub } from "react-icons/ai";
+// import { AiOutlineGithub } from "react-icons/ai";
 
 import RandomLoader from "components/RandomLoader";
 
@@ -75,7 +75,7 @@ function App() {
             }
             <ContainerBotoes>
                 <Botao id="btn_login" onClick={() => { calendarAPI.handleAuthClick() }}> </Botao>
-                <Botao id="btn_dados" onClick={() => { buscaEventosAPI() }}><AiOutlineGithub /> Gabriel Boldi</Botao>
+                <Botao id="btn_dados" onClick={() => { buscaEventosAPI() }}> {/* <AiOutlineGithub /> */} Gabriel Boldi</Botao>
             </ContainerBotoes>
         </Frame>
 
