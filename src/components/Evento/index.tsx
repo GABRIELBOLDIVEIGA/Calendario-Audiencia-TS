@@ -21,12 +21,12 @@ const EventoAtual = styled.div<Props>`
     min-width: 20%;
     height: 15rem;
     min-height: 15rem;
-    padding: 1rem;
+    padding: .75rem 1rem 1rem 1rem;
     
     color: ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     border: 5px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     box-shadow: 10px 10px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
-    background-color: ${(props) => (props.hoje ? "#c4a1ff" : "#bfbfbf")};
+    background-color: ${(props) => (props.hoje ? "#84dcc6" : "#bfbfbf")};
 `
 
 const ContainerDataHora = styled.div`
@@ -34,16 +34,19 @@ const ContainerDataHora = styled.div`
     justify-content: space-between;
     align-items: center;
     
-    font-family: 'Press Start 2P', cursive;
+    // font-family: 'Press Start 2P', cursive;
+    // font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
 `
 
 const PHora = styled.p<Props>`
     padding: .5rem 1rem;
-    font-size: 1rem;
+    font-size: 1.35rem;
     
     border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
-    background-color: ${(props) => (props.hoje ? "#00b1f8" : "hsl(223, 69%, 95%)")};
     box-shadow: 5px 5px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
+    background-color: ${(props) => (props.hoje ? "#70d6ff" : "hsl(223, 69%, 95%)")};
 `
 
 const ContainerProcesso = styled.div<Props>`
@@ -51,7 +54,7 @@ const ContainerProcesso = styled.div<Props>`
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: .5rem;
 
     padding: .5rem;
     max-width: 100%;
@@ -62,14 +65,14 @@ const ContainerProcesso = styled.div<Props>`
 
 const PProcesso = styled.p<Props>`
     width: max-content;
-    padding: .5rem 1rem;
+    padding: .35rem 1rem;
     
-    font-size: 1.25rem;
-    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    // font-family: 'Press Start 2P', cursive;
     
     border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     box-shadow: 5px 5px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
-    background-color: ${(props) => (props.hoje ? "#ffe300" : "hsl(223, 69%, 95%)")};
+    background-color: ${(props) => (props.hoje ? "#ff9770" : "hsl(223, 69%, 95%)")};
 `
 
 const PNumeroProcesso = styled.p`
@@ -87,8 +90,9 @@ const ContainerVara = styled.div`
 `
 
 const PVara = styled.p<Props>`
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.25rem;
+    // font-family: 'Press Start 2P', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
     text-align: center;
     
     width: max-content;
@@ -96,7 +100,7 @@ const PVara = styled.p<Props>`
     
     border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     box-shadow: 5px 5px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
-    background-color: ${(props) => (props.hoje ? "#50d03e" : "hsl(223, 69%, 95%)")};
+    background-color: ${(props) => (props.hoje ? "#ffd670" : "hsl(223, 69%, 95%)")};
 `
 
 export default function Evento({ evento }: { evento: IEvento }) {

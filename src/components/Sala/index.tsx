@@ -15,17 +15,19 @@ const Titulo = styled.p`
     box-shadow: 5px 5px #3d3d3d;
     background-color: #ffa4c4;
 
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     margin: .5rem 0 1rem 0;
 
-    font-family: 'Press Start 2P', cursive;
-    font-size: 2rem;
+    // font-family: 'Press Start 2P', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
 `
 const Div = styled.div`
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 1.75rem;
+    gap: 1.5rem;
     width: 100%;
 `
 

@@ -1,15 +1,17 @@
+import React from 'react';
 import Carrousel from "./components/Carrousel";
 import styled from "styled-components";
+
 import getEvents, { calendarAPI } from "GoogleAPI/getEvents";
 import { useEffect, useState } from "react";
 import { Evento } from "interface/Evento";
 import { Segundos } from "enums/Segundos"
 import { useUsuariosContext } from "context/UsuariosContext";
-// import { AiOutlineGithub } from "react-icons/ai";
-
+import { AiOutlineGithub } from "react-icons/ai";
 import RandomLoader from "components/RandomLoader";
+import Cabecalho from 'components/Cabecalho';
 
-const Frame = styled.section`
+const Tela = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,10 +19,27 @@ const Frame = styled.section`
     min-height: 100vh;
     max-height: 100vh;
     overflow: hidden;
+
+    position: relative;
+`
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    height: 100vh;
+    z-index: 999;
+
+    // border: 1px solid blue;
 `
 const ContainerBotoes = styled.div`
     display: flex;
     justify-content: space-between;
+    color: white;
+    
+    width: 100vw;
+    
+    // border: 1px solid red;
 `
 const Botao = styled.button`
     font-family: 'Press Start 2P', cursive;
@@ -35,7 +54,6 @@ const Botao = styled.button`
     padding: .5rem;
     margin: 0 .5rem;
     width: 230px;
-    z-index: 999;
 `
 
 function App() {
@@ -63,21 +81,24 @@ function App() {
         getEvents(calendariosIDs)
             .then((resposta) => {
                 setSalas(resposta)
-                setTimeout(() => { setReaload((prev) => !prev) }, Segundos._10segundos); // essa linha força o React a re-renderizar
+                setTimeout(() => { setReaload((prev) => !prev) }, Segundos._5segundos); // essa linha força o React a re-renderizar
             })
     }
 
     return (
-        <Frame>
-            {/* <Clock className={style.app__clock} wrap={false} format={"HH:mm"} ticking={true} /> */}
+        <Tela>
             {salas.length > 0 ? <Carrousel salas={salas} />
                 : <RandomLoader />
             }
-            <ContainerBotoes>
-                <Botao id="btn_login" onClick={() => { calendarAPI.handleAuthClick() }}> </Botao>
-                <Botao id="btn_dados" onClick={() => { buscaEventosAPI() }}> {/* <AiOutlineGithub /> */} Gabriel Boldi</Botao>
-            </ContainerBotoes>
-        </Frame>
+
+            <Container>
+                <Cabecalho />
+                {/* <ContainerBotoes>
+                    <Botao id="btn_login" onClick={() => { calendarAPI.handleAuthClick() }}></Botao>
+                    <Botao id="btn_dados" onClick={() => { buscaEventosAPI() }}> <AiOutlineGithub /> Gabriel Boldi</Botao>
+                </ContainerBotoes> */}
+            </Container>
+        </Tela>
 
     )
 }
