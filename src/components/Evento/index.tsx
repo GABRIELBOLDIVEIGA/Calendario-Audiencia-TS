@@ -118,7 +118,7 @@ export default function Evento({ evento }: { evento: IEvento }) {
 
         setData(formataData(evento.start.dateTime));
         setHora(formataHorario(evento.start.dateTime));
-
+        
         const hoje = new Date().getDate() === new Date(evento.start.dateTime).getDate() ? true : false;
         setEventoHoje(hoje)
     }, [])
@@ -129,7 +129,7 @@ export default function Evento({ evento }: { evento: IEvento }) {
                 <p>{data}</p>
                 <PHora hoje={eventoHoje}>{`${hora}`}</PHora>
             </ContainerDataHora>
-
+            
             <ContainerProcesso hoje={eventoHoje}>
                 <PProcesso hoje={eventoHoje}>Processo</PProcesso>
                 <PNumeroProcesso>{`${evento.summary}`}</PNumeroProcesso>
