@@ -22,11 +22,12 @@ const Carrousel = ({ salas }: Props) => {
     }, [])
 
     const TEMPO_DE_CADA_SLIDE = time._20segundos;
-    const VELOCIDADE_EFEITO_TROCA_SLIDE = time._3segundos;
+    const VELOCIDADE_EFEITO_TROCA_SLIDE = time._1segundos;
     const settings = {
         dots: true,
         infinite: true,
         autoplay: true,
+        fade: true,
         autoplaySpeed: TEMPO_DE_CADA_SLIDE,
         speed: VELOCIDADE_EFEITO_TROCA_SLIDE,
         slidesToShow: 1,

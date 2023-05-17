@@ -55,7 +55,7 @@ const ContainerProcesso = styled.div<Props>`
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: .2rem;
 
     padding: .5rem;
     max-width: 100%;
@@ -68,7 +68,7 @@ const PProcesso = styled.p<Props>`
     width: max-content;
     padding: .35rem 1rem;
     
-    font-size: 1.5rem;
+    font-size: 1rem;
     // font-family: 'Press Start 2P', cursive;
     
     border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
@@ -82,7 +82,7 @@ const PNumeroProcesso = styled.p`
 
     font-size: 1.7rem;
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    // padding-bottom: 0.25rem;
 `
 
 const ContainerVara = styled.div`
@@ -93,7 +93,7 @@ const ContainerVara = styled.div`
 const PVara = styled.p<Props>`
     // font-family: 'Press Start 2P', cursive;
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
     
     width: max-content;
