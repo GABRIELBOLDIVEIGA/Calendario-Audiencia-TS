@@ -27,9 +27,9 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: absolute;
     height: 100vh;
-    z-index: -1;
+    position: absolute;
+    z-index: 999;
 `
 const Rodape = styled.div`
     display: flex;

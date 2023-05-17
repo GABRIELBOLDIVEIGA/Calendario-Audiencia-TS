@@ -8,7 +8,7 @@ const tempo_de_reload_da_pagina_paraTeste = 1000 * 20;
 
     // Navigate to Url
     await driver.get("http://localhost:3000/");
-
+    
     // localiza o botao para iniciar o processo de login
     await sleep(2000);
     await driver.findElement(By.id("btn_login")).click();
@@ -17,7 +17,8 @@ const tempo_de_reload_da_pagina_paraTeste = 1000 * 20;
     const handles = await driver.getAllWindowHandles();
     const popupHandle = handles[1];
     await driver.switchTo().window(popupHandle);
-
+    await driver.manage().window().setRect({ x: 0, y: 220 });
+    
     // localiza o campo de email, digita e da Enter
     await driver.findElement(By.xpath('//*[@id="identifierId"]')).sendKeys("audiencias-civel-vitoria@tjes.jus.br", Key.ENTER);
 
@@ -38,17 +39,12 @@ const tempo_de_reload_da_pagina_paraTeste = 1000 * 20;
     // // Troca foco para pagina principal
     await driver.switchTo().window(handles[0]);
 
+     // coloca a pagina em modo tela cheia
+    await driver.manage().window().fullscreen();
+
     // faz a consulta do calendario
     await sleep(2000);
     await driver.findElement(By.id("btn_dados")).click();
-
-    // coloca a pagina em modo tela cheia
-    await sleep(2000);
-    await driver.manage().window().fullscreen();
-
-    // await sleep(2000);
-    // await driver.findElement(By.xpath('//*[@id="root"]/section/div[2]')).click();
-    await driver.findElement(By.id('btn_dados')).click();
 
     setTimeout(async () => {
         await driver.close();
