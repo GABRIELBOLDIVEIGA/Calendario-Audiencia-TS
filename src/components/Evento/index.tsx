@@ -46,7 +46,7 @@ const PHora = styled.p<Props>`
     font-size: 1.35rem;
     
     border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
-    box-shadow: 5px 5px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
+    // box-shadow: 3px 3px ${(props) => (props.hoje ? "#3d3d3d" : "#727272")};
     background-color: ${(props) => (props.hoje ? "#70d6ff" : "hsl(223, 69%, 95%)")};
 `
 
@@ -68,7 +68,7 @@ const PProcesso = styled.p<Props>`
     width: max-content;
     padding: .35rem 1rem;
     
-    font-size: 2rem;
+    font-size: 1.5rem;
     // font-family: 'Press Start 2P', cursive;
     
     border: 3px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
@@ -80,7 +80,7 @@ const PNumeroProcesso = styled.p`
     word-break: break-word;
     text-align: center;
 
-    font-size: 1.25rem;
+    font-size: 1.7rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 `

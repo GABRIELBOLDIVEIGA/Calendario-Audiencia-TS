@@ -28,11 +28,11 @@ export default function Legenda() {
     return (
         <ContainerLegenda>
             <ImgWrap>
-                <p>Eventos de Hoje</p>
+                <p>Audiências de Hoje</p>
                 <img className='img' src={eventoAtual} />
             </ImgWrap>
             <ImgWrap>
-                <p>Proximos Eventos</p>
+                <p>Próximas Audiências</p>
                 <img className='img' src={eventofuturo} />
             </ImgWrap>
         </ContainerLegenda>
