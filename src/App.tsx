@@ -2,14 +2,15 @@ import React from 'react';
 import Carrousel from "./components/Carrousel";
 import styled from "styled-components";
 
-import getEvents, { calendarAPI } from "GoogleAPI/getEvents";
 import { useEffect, useState } from "react";
 import { Evento } from "interface/Evento";
-import { Segundos } from "enums/Segundos"
 import { useUsuariosContext } from "context/UsuariosContext";
-import { AiOutlineGithub } from "react-icons/ai";
 import RandomLoader from "components/RandomLoader";
 import Cabecalho from 'components/Cabecalho';
+import Legenda from 'components/Legenda';
+import getEvents from 'GoogleAPI/getEvents';
+import { Segundos } from 'enums/Segundos';
+import { AiOutlineGithub } from 'react-icons/ai';
 
 const Tela = styled.section`
     display: flex;
@@ -28,18 +29,12 @@ const Container = styled.div`
     justify-content: space-between;
     position: absolute;
     height: 100vh;
-    z-index: 999;
-
-    // border: 1px solid blue;
+    z-index: -1;
 `
-const ContainerBotoes = styled.div`
+const Rodape = styled.div`
     display: flex;
     justify-content: space-between;
     color: white;
-    
-    width: 100vw;
-    
-    // border: 1px solid red;
 `
 const Botao = styled.button`
     font-family: 'Press Start 2P', cursive;
@@ -49,11 +44,10 @@ const Botao = styled.button`
     gap: .5rem;
     border: none;
     background-color: transparent;
-    color: white;
+    color: rgba(255, 255, 255, 10%);
     border-radius: 10px;
     padding: .5rem;
     margin: 0 .5rem;
-    width: 230px;
 `
 
 function App() {
@@ -77,6 +71,7 @@ function App() {
             });
     }, []);
 
+
     const buscaEventosAPI = () => {
         getEvents(calendariosIDs)
             .then((resposta) => {
@@ -93,10 +88,13 @@ function App() {
 
             <Container>
                 <Cabecalho />
-                {/* <ContainerBotoes>
-                    <Botao id="btn_login" onClick={() => { calendarAPI.handleAuthClick() }}></Botao>
-                    <Botao id="btn_dados" onClick={() => { buscaEventosAPI() }}> <AiOutlineGithub /> Gabriel Boldi</Botao>
-                </ContainerBotoes> */}
+                <Rodape>
+                    <Legenda />
+                    <Botao id="btn_dados" onClick={() => { buscaEventosAPI() }}> 
+                        <AiOutlineGithub /> 
+                        Gabriel Boldi
+                    </Botao>
+                </Rodape>
             </Container>
         </Tela>
 

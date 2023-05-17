@@ -15,7 +15,7 @@ export default async function getEvents(calendarioIDs: Array<{ id: string, sala:
          timeMin: new Date().toISOString(),
          timeMax: addDays(30).toISOString(),
          showDeleted: false,
-         maxResults: 12,
+         maxResults: 8,
          orderBy: "startTime",
          singleEvents: true,
       })

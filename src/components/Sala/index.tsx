@@ -8,7 +8,7 @@ const Section = styled.section`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 97vh;
+    min-height: 100vh;
 `
 const Titulo = styled.p`
     border: 5px solid black;
@@ -16,10 +16,8 @@ const Titulo = styled.p`
     background-color: #ffa4c4;
 
     padding: 1.5rem 2rem;
-    margin: .5rem 0 1rem 0;
+    margin: 5rem 0 3rem 0;
 
-    // font-family: 'Press Start 2P', cursive;
-    font-family: 'Roboto', sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
 `

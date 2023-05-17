@@ -22,6 +22,7 @@ const EventoAtual = styled.div<Props>`
     height: 15rem;
     min-height: 15rem;
     padding: .75rem 1rem 1rem 1rem;
+    margin-bottom: 1.75rem;
     
     color: ${(props) => (props.hoje ? "black" : "#3f3f3f")};
     border: 5px solid ${(props) => (props.hoje ? "black" : "#3f3f3f")};
