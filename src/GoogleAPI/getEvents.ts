@@ -13,7 +13,7 @@ export default async function getEvents(calendarioIDs: Array<{ id: string, sala:
          calendarId: calendario.id,
          // calendarId: "c_839d04047b7a43ba4cb2f34f8c0156ebf014e85b57263ff5364a8247e3d264a7@group.calendar.google.com",
          timeMin: new Date().toISOString(),
-         timeMax: addDays(30).toISOString(),
+         timeMax: addDays(15).toISOString(),
          showDeleted: false,
          maxResults: 8,
          orderBy: "startTime",
@@ -26,6 +26,7 @@ export default async function getEvents(calendarioIDs: Array<{ id: string, sala:
                salas.push(sala);
             }
          })
+         console.log(salas)
    })
 
    console.log(JSON.stringify(salas))
